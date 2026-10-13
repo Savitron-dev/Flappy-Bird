@@ -36,6 +36,7 @@ public class Button_Manager : MonoBehaviour
         play.SetActive(true);
         menu.SetActive(true);
         quit.SetActive(true);
+        restart.SetActive(true);
         Time.timeScale = 0f;
     }
     public void Play()

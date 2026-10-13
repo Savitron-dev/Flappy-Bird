@@ -29,11 +29,18 @@ public class Bird_Input : MonoBehaviour
     }
     void Jump() 
     {
-        if (gameManager.currentState == Game_Manager.GameState.Playing) 
+        if (Input.GetKeyDown(KeyCode.Space) || Input.GetMouseButtonDown(0)) 
         {
-            fly.Play();
-            Vector2 move = new Vector2(0, jumpForce);
-            rb.AddForce(move, ForceMode2D.Impulse);
+            if (gameManager.currentState == Game_Manager.GameState.Ready) 
+            {
+                gameManager.StartGame();
+            }
+            if (gameManager.currentState == Game_Manager.GameState.Playing) 
+            {
+                fly.Play();
+                Vector2 move = new Vector2(0, jumpForce);
+                rb.AddForce(move, ForceMode2D.Impulse);
+            }
         }
     }
 }
