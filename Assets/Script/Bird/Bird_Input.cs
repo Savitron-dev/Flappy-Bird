@@ -1,3 +1,4 @@
+using System;
 using UnityEngine;
 using UnityEngine.EventSystems;
 
@@ -7,6 +8,7 @@ public class Bird_Input : MonoBehaviour
     [SerializeField] private float jumpForce = 5f;
     public AudioSource fly;
     public Game_Manager gameManager;
+    [SerializeField] private Animator flyBird;
     private void Start()
     {
         rb = GetComponent<Rigidbody2D>();
@@ -16,15 +18,21 @@ public class Bird_Input : MonoBehaviour
     {
         if (Input.GetKeyDown(KeyCode.Space) || Input.GetMouseButtonDown(0) && !EventSystem.current.IsPointerOverGameObject())
         {
+            flyBird.SetBool("isFly", true);
             Jump();
         }
-        if (Input.touchCount > 0)
+        else if (Input.touchCount > 0)
         {
             Touch touch = Input.GetTouch(0);
-            if (touch.phase == TouchPhase.Began && !EventSystem.current.IsPointerOverGameObject(touch.fingerId)) 
+            if (touch.phase == TouchPhase.Began && !EventSystem.current.IsPointerOverGameObject(touch.fingerId))
             {
+                flyBird.SetBool("isFly", true);
                 Jump();
             }
+        }
+        else 
+        {
+            flyBird.SetBool("isFly", false);        
         }
     }
     void Jump() 

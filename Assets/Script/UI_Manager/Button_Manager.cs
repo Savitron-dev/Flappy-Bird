@@ -1,6 +1,7 @@
 using TMPro;
 using Unity.VisualScripting;
 using UnityEngine;
+using UnityEngine.SceneManagement;
 
 public class Button_Manager : MonoBehaviour
 {
@@ -59,7 +60,7 @@ public class Button_Manager : MonoBehaviour
         menu.SetActive(true);
         quit.SetActive(true);
         overScoreText.text = "Score: " + score.GetScore();
-        overHighScoreText.text = "High Score: " + score.GetScore();
+        overHighScoreText.text = "High Score: " + score.GetHighScore();
         score.SetScore(0);
     }
     public void Restart() 
@@ -81,6 +82,7 @@ public class Button_Manager : MonoBehaviour
     public void Menu() 
     {    
         Time.timeScale = 1f;
+        SceneManager.LoadSceneAsync("MainMenu");
     }
     public void Quit() 
     {

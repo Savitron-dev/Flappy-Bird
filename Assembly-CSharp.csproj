@@ -61,6 +61,7 @@
     <Compile Include="Assets\Script\UI_Manager\Button_Manager.cs" />
     <Compile Include="Assets\Script\Collision\Score_Trigger.cs" />
     <Compile Include="Assets\Script\Obstacles\Obstacle_Movement.cs" />
+    <Compile Include="Assets\Script\MainMenu\MainMenu_Button_Manager.cs" />
     <Compile Include="Assets\Script\Collision\Collision_Detector.cs" />
   </ItemGroup>
   <ItemGroup>
